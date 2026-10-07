@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An interactive feature explorer for the NUS smart bus stop proposal." />
+    <title>Smart Bus Stop — Feature Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <h1 class="sr-only">Smart Bus Stop Feature Explorer</h1>
+
+      <section id="initialView" class="overview" aria-label="Bus stop overview">
+        <figure id="mainImageFrame" class="main-image-frame">
+          <img
+            id="mainBusStopImage"
+            src="assets/bus-stop-main.jpeg"
+            alt="Wide view of the proposed NUS smart bus stop with solar panels, greenery, seating, lights and bus information display."
+          />
+        </figure>
+
+        <section class="mode-controls" aria-labelledby="modesHeading">
+          <p id="modesHeading" class="mode-heading">Explore the bus stop</p>
+          <div class="mode-groups">
+            <div class="mode-group" aria-label="Day and night mode">
+              <span class="mode-group-label">Lighting</span>
+              <div class="mode-options">
+                <button class="mode-option is-selected" type="button" data-mode="lighting" data-value="day" aria-pressed="true">☀️ Day</button>
+                <button class="mode-option" type="button" data-mode="lighting" data-value="night" aria-pressed="false">🌙 Night</button>
+              </div>
+            </div>
+            <div class="mode-group" aria-label="Normal and rain mode">
+              <span class="mode-group-label">Weather</span>
+              <div class="mode-options">
+                <button class="mode-option is-selected" type="button" data-mode="weather" data-value="normal" aria-pressed="true">☀️ Normal</button>
+                <button class="mode-option" type="button" data-mode="weather" data-value="rain" aria-pressed="false">🌧️ Rain</button>
+              </div>
+            </div>
+            <div class="mode-group" aria-label="Normal and high crowd mode">
+              <span class="mode-group-label">Crowd</span>
+              <div class="mode-options">
+                <button class="mode-option is-selected" type="button" data-mode="crowd" data-value="normal" aria-pressed="true">👤 Normal</button>
+                <button class="mode-option" type="button" data-mode="crowd" data-value="crowded" aria-pressed="false">👥 Crowded</button>
+              </div>
+            </div>
+          </div>
+          <p id="nightModeLabel" class="mode-status" hidden>Adaptive lighting activates when people are detected, improving visibility and safety.</p>
+        </section>
+
+        <nav id="featureNav" class="feature-nav" aria-label="Explore bus stop features">
+          <button class="feature-button" type="button" data-feature="1" aria-pressed="false"><b>01</b><span>Solar Panels</span></button>
+          <button class="feature-button" type="button" data-feature="2" aria-pressed="false"><b>02</b><span>Rain Canopy</span></button>
+          <button class="feature-button" type="button" data-feature="3" aria-pressed="false"><b>03</b><span>Rainwater Harvesting</span></button>
+          <button class="feature-button" type="button" data-feature="4" aria-pressed="false"><b>04</b><span>Green Roof &amp; Plants</span></button>
+          <button class="feature-button" type="button" data-feature="5" aria-pressed="false"><b>05</b><span>Smart Lighting</span></button>
+          <button class="feature-button" type="button" data-feature="6" aria-pressed="false"><b>06</b><span>Retractable Bench</span></button>
+          <button class="feature-button" type="button" data-feature="7" aria-pressed="false"><b>07</b><span>Comfortable Seating</span></button>
+          <button class="feature-button" type="button" data-feature="8" aria-pressed="false"><b>08</b><span>Bus Information Display</span></button>
+          <button class="feature-button" type="button" data-feature="9" aria-pressed="false"><b>09</b><span>Adaptive Lighting</span></button>
+        </nav>
+
+        <section id="modeVisuals" class="mode-visuals" aria-live="polite" hidden>
+          <article id="rainModeVisual" class="mode-visual mode-rain-visual" hidden>
+            <div class="mode-visual-header">
+              <p>Rain response</p>
+              <span>Features 02 + 03</span>
+            </div>
+            <div class="mode-image-grid">
+              <figure><img src="assets/final-feature-images/02-rain-canopy.png" alt="Supplied rain-responsive canopy feature image." /></figure>
+              <figure><img src="assets/final-feature-images/03-rainwater-harvesting.png" alt="Supplied rainwater harvesting feature image." /></figure>
+            </div>
+            <p class="mode-explanation">During rain, the canopy extends toward the boarding edge to help keep passengers dry. Rainwater is collected through gutters and stored for plant irrigation.</p>
+          </article>
+
+          <article id="crowdModeVisual" class="mode-visual" hidden>
+            <div class="mode-visual-header">
+              <p>High crowd response</p>
+              <span>Feature 06</span>
+            </div>
+            <figure class="mode-single-image"><img src="assets/final-feature-images/06-retractable-bench.png" alt="Supplied three-step retractable bench feature image." /></figure>
+            <p class="mode-explanation">When the bus stop becomes crowded, the bench can be folded away to create more standing space. The folded bench can still be leaned on, while at least one seat remains available for elderly or disabled users.</p>
+          </article>
+        </section>
+      </section>
+
+      <section id="featureSection" class="feature-section" aria-live="polite" hidden>
+        <div class="feature-detail-header">
+          <p id="selectedFeatureLabel" class="selected-feature-label">Feature 01</p>
+          <button id="resetView" class="reset-view" type="button"><span aria-hidden="true">×</span> Close feature</button>
+        </div>
+        <figure class="feature-panel-frame">
+          <img id="featurePanelImage" class="feature-panel-image" src="" alt="" />
+        </figure>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
